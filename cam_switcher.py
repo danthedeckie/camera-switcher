@@ -8,7 +8,8 @@ bl_info = {
     "version": (1, 0),
     "blender": (2, 65, 0),
     "location": "3D View > Tools",
-    "category": "Animation"
+    "category": "3D View",
+    "wiki_url": "https://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/3D_interaction/Camera_Switcher"
     }
 
 # Helper internal functions:
