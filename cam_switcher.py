@@ -2,7 +2,8 @@ import bpy
 
 bl_info = {
     "name": "Camera Switcher",
-    "description": "Switch Cameras and create Bound Timeline markers naturally",
+    "description": "Switch Cameras and create Bound Timeline "
+                   "markers naturally.",
     "author": "Daniel Fairhead",
     "version": (1, 0),
     "blender": (2, 65, 0),
@@ -12,10 +13,11 @@ bl_info = {
 
 # Helper internal functions:
 
+
 def marker_now(context):
     ''' Drop a marker in the timeline at the current frame and return it,
         or return the current marker if there is already one there '''
-    
+
     markers = context.scene.timeline_markers
     now = context.scene.frame_current
     for m in markers:
@@ -23,18 +25,18 @@ def marker_now(context):
             return m
     return markers.new(name='new', frame=now)
 
+
 class CutToCamera(bpy.types.Operator):
     bl_idname = "view3d.cut_to_camera"
     bl_label = "Cuts to the selected camera, and adds a marker linking to it."
-    
-    cam = None
-    
+
     def execute(self, context):
         marker = marker_now(context)
         cam = context.active_object
         marker.camera = cam
         marker.name = cam.name
         return {'FINISHED'}
+
 
 class CameraSwitcherPanel(bpy.types.Panel):
     bl_label = "Camera Switcher"
@@ -59,9 +61,9 @@ class CameraSwitcherPanel(bpy.types.Panel):
             row.label(text=cam.name)
             row = layout.row(align=True)
             row.context_pointer_set("active_object", cam)
-            row.operator('view3d.object_as_camera', text="PREVIEW")
-            row.operator('view3d.cut_to_camera', text='TAKE')
-            
+            row.operator('view3d.object_as_camera', text="Preview")
+            row.operator('view3d.cut_to_camera', text='Take')
+
         row = layout.row()
         row.prop(scene, "camera_switcher_sorted")
 
@@ -69,6 +71,7 @@ class CameraSwitcherPanel(bpy.types.Panel):
 def register():
     bpy.utils.register_class(CutToCamera)
     bpy.utils.register_class(CameraSwitcherPanel)
+
 
 def unregister():
     bpy.utils.unregister_class(CameraSwitcherPanel)
