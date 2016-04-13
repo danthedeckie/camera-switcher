@@ -42,3 +42,15 @@ the timeline which cuts to that camera (and is named after that camera).
 The ``Take`` buttons can be used while the scene is actually playing,
 to 'live switch' through a scene.
 
+Extra Options, Sorting, etc:
+----------------------------
+
+Each camera also has an extra panel in ``Properties > Camera Data > Camera Switcher Options``.
+Sort Prefix, and Show in Switcher.  Show in switcher does what it says on the tin.
+Sort Prefix allows you to sort the cameras in the switcher by this instead of just the name.
+For instance "Wide Angle Shots", "Closeups", "Tracking" and so on.
+
+If you are using it in this way, then you may also find the 'Group by Prefix' option useful
+in the Camera Switcher.  This splits up the different groups, and displays up until the first '_'
+character.  So you can use prefixes such as "Wide Angle_01", "Wide Angle_02", and in the switcher
+it will group all the "Wide Angle" cameras together, and then sort by "01", "02" within that.
